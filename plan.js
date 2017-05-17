@@ -1,94 +1,49 @@
 $(document).ready(function() {
-    $(".freshmen-calendar").hide();
-    $(".sophmore-calendar").hide();
-    $(".junior-calendar").hide();
-    $(".senior-calendar").hide();
-    $(".Aerospace-calendar").hide();
-    $(".AP-Chemistry-calendar").hide();
-    $(".AP-Literature-calendar").hide();
+    $(":checkbox").change(function() {
+
+        var checked = $(":checked");
+        var base_url = 'https://calendar.google.com/embed?ctz=America/New_York';
 
 
-    $(".Freshmen").click(function(event) {
-        event.preventDefault();
-        $(".freshmen-calendar").toggle();
-        $(".sophmore-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".senior-calendar").hide();
-        $(".Aerospace-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").hide();
+        //if there are no calendars checked, this is my URL.
+        //console.log(base_url);
+
+        //if the freshman is checked what is your URL?
+        var freshman = $(":checkbox").first();
+        //  var freshman_src = freshman.data('src');
+        // var junior_src = junior.data('src');
+        //console.log(base_url + "&src= ")
+
+        //step 1:
+        //loop through every checkbox that is checked
+        //console.log its src to the screen
 
 
-    });
-
-    $(".Sophomore").click(function(event) {
-        event.preventDefault();
-        $(".sophmore-calendar").toggle();
-        $(".freshmen-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".senior-calendar").hide();
-        $(".Aerospace-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").toggle();
-
-    });
-    $(".Junior").click(function(event) {
-        event.preventDefault();
-        $(".junior-calendar").toggle();
-        $(".freshmen-calendar").hide();
-        $(".sophmore-calendar").hide();
-        $(".senior-calendar").hide();
-        $(".Aerospace-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").hide();
+        //checked = [<freshmancheckbox>, <sophomorecheckbox>]
+        //i=0
+        //checked[i] = <freshmancheckbox>
+        //log <freshmancheckbox>
+        //log the src of <freshmancheckbox>
 
 
-    });
-    $(".Senior").click(function(event) {
-        event.preventDefault();
-        $(".senior-calendar").toggle();
-        $(".freshmen-calendar").hide();
-        $(".sophmore-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".Aerospace-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").hide();
+
+        for (var i = 0; i < checked.length; i++) {
+            base_url=base_url +"&src="+ $(checked[i]).data('src');
+        }
+        console.log(base_url);
+        $("#calendar").attr('src', base_url);
+        
+
+
+        //step 2:
+        //loop through every checkbox that is checked
+        //add its src to the base_url
+
+
+
+
+        //console.log(checked);
 
     });
-    $(".Aerospace").click(function(event) {
-        event.preventDefault();
-        $(".Aerospace-calendar").toggle();
-        $(".senior-calendar").hide();
-        $(".freshmen-calendar").hide();
-        $(".sophmore-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").hide();
-    });
-    $(".AP-Chemistry").click(function(event) {
-        event.preventDefault();
-        $(".Aerospace-calendar").hide();
-        $(".senior-calendar").hide();
-        $(".freshmen-calendar").hide();
-        $(".sophmore-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".AP-Chemistry-calendar").toggle();
-        $(".AP-Literature-calendar").hide();
-    });
-    $(".AP-Literature").select(function(event) {
-        event.preventDefault();
-        $(".Aerospace-calendar").hide();
-        $(".senior-calendar").hide();
-        $(".freshmen-calendar").hide();
-        $(".sophmore-calendar").hide();
-        $(".junior-calendar").hide();
-        $(".AP-Chemistry-calendar").hide();
-        $(".AP-Literature-calendar").toggle();
 
-
-    });
-});
-
-$("").click(function() {
-    
 });
