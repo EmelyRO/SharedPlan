@@ -30,13 +30,20 @@ body {
 
 .class-calendar {
     text-align: center;
+  display:inline-block;
+    
 }
 
 .cookie {
     color: #ff6600;
     text-align: left;
+    display:inline-block;
+    vertical-align: top;
+    
 }
 
 .classes {
+    
     text-align: center;
+
 }
